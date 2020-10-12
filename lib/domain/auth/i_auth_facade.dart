@@ -5,12 +5,12 @@ import 'auth_failure.dart';
 
 abstract class IAuthFacade {
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
-    @required EmailAddress address,
+    @required EmailAddress emailAddress,
     @required Password password,
   });
 
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
-    @required EmailAddress address,
+    @required EmailAddress emailAddress,
     @required Password password,
   });
 
