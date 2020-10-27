@@ -6,6 +6,7 @@ import 'package:flutter_ddd_todos/domain/core/value_validators.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 class EmailAddress extends ValueObject<String> {
+  @override
   final Either<ValueFailure<String>, String> value;
 
   factory EmailAddress(String value) {
@@ -21,6 +22,7 @@ class EmailAddress extends ValueObject<String> {
 }
 
 class Password extends ValueObject<String> {
+  @override
   final Either<ValueFailure<String>, String> value;
 
   factory Password(String value) {
