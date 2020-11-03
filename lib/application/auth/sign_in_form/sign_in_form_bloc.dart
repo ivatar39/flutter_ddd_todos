@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_ddd_todos/domain/auth/i_auth_facade.dart';
 import 'package:flutter_ddd_todos/domain/auth/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -77,7 +78,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     }
 
     yield state.copyWith(
-      showErrorMessages: true,
+      showErrorMessages: AutovalidateMode.always,
       isSubmitting: false,
       authFailureOrSuccessOption: optionOf(failureOrSuccess),
     );
