@@ -8,7 +8,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.8.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -26,6 +26,8 @@ dependencies:
   injectable: ^1.0.5
   # UI
   flushbar: ^1.10.4
+  # Tools
+  uuid: ^2.2.2
 
 dev_dependencies:
   freezed: ^0.12.2
