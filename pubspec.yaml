@@ -13,9 +13,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  dartz: ^0.9.2
 
-  cupertino_icons: ^1.0.0
   flutter_bloc: ^6.1.0
   # firebase
   firebase_core: ^0.5.2
@@ -23,6 +21,7 @@ dependencies:
   google_sign_in: ^4.5.6
   # UI
   flushbar: ^1.10.4
+  cupertino_icons: ^1.0.0
   # Tools
   uuid: ^2.2.2
   # Auto-gen
@@ -30,6 +29,10 @@ dependencies:
   get_it: ^5.0.1
   injectable: ^1.0.5
   auto_route: ^0.6.9
+  # Functional programming
+  dartz: ^0.9.2
+  kt_dart: ^0.8.0
+
 
 
 dev_dependencies:
