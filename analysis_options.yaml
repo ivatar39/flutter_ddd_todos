@@ -5,5 +5,7 @@ analyzer:
     missing_required_param: error
     missing_return: error
     must_be_immutable: error
+    sort_unnamed_constructors_first: ignore
   exclude:
     - lib/**/*freezed.dart
+    - lib/**/*config.dart
