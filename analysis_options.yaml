@@ -7,5 +7,6 @@ analyzer:
     must_be_immutable: error
     sort_unnamed_constructors_first: ignore
   exclude:
-    - lib/**/*freezed.dart
-    - lib/**/*config.dart
+    - lib/**/*.freezed.dart
+    - lib/**/*.config.dart
+    - lib/**/*.g.dart

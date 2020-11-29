@@ -109,7 +109,7 @@ class __$NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_Note implements _Note {
+class _$_Note extends _Note {
   const _$_Note(
       {@required this.id,
       @required this.body,
@@ -118,7 +118,8 @@ class _$_Note implements _Note {
       : assert(id != null),
         assert(body != null),
         assert(color != null),
-        assert(todos != null);
+        assert(todos != null),
+        super._();
 
   @override
   final UniqueId id;
@@ -161,7 +162,8 @@ class _$_Note implements _Note {
       __$NoteCopyWithImpl<_Note>(this, _$identity);
 }
 
-abstract class _Note implements Note {
+abstract class _Note extends Note {
+  const _Note._() : super._();
   const factory _Note(
       {@required UniqueId id,
       @required NoteBody body,
