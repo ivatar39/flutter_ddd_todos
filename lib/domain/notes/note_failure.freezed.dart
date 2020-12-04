@@ -17,6 +17,11 @@ class _$NoteFailureTearOff {
   _Unexpected unexpected() {
     return const _Unexpected();
   }
+
+// ignore: unused_element
+  _InsufficientPermission insufficientPermission() {
+    return const _InsufficientPermission();
+  }
 }
 
 /// @nodoc
@@ -28,19 +33,23 @@ mixin _$NoteFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult unexpected(),
+    @required TResult insufficientPermission(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult unexpected(),
+    TResult insufficientPermission(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult unexpected(_Unexpected value),
+    @required TResult insufficientPermission(_InsufficientPermission value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult unexpected(_Unexpected value),
+    TResult insufficientPermission(_InsufficientPermission value),
     @required TResult orElse(),
   });
 }
@@ -100,8 +109,10 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult unexpected(),
+    @required TResult insufficientPermission(),
   }) {
     assert(unexpected != null);
+    assert(insufficientPermission != null);
     return unexpected();
   }
 
@@ -109,6 +120,7 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult unexpected(),
+    TResult insufficientPermission(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -122,8 +134,10 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult unexpected(_Unexpected value),
+    @required TResult insufficientPermission(_InsufficientPermission value),
   }) {
     assert(unexpected != null);
+    assert(insufficientPermission != null);
     return unexpected(this);
   }
 
@@ -131,6 +145,7 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult unexpected(_Unexpected value),
+    TResult insufficientPermission(_InsufficientPermission value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -143,4 +158,95 @@ class _$_Unexpected implements _Unexpected {
 
 abstract class _Unexpected implements NoteFailure {
   const factory _Unexpected() = _$_Unexpected;
+}
+
+/// @nodoc
+abstract class _$InsufficientPermissionCopyWith<$Res> {
+  factory _$InsufficientPermissionCopyWith(_InsufficientPermission value,
+          $Res Function(_InsufficientPermission) then) =
+      __$InsufficientPermissionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$InsufficientPermissionCopyWithImpl<$Res>
+    extends _$NoteFailureCopyWithImpl<$Res>
+    implements _$InsufficientPermissionCopyWith<$Res> {
+  __$InsufficientPermissionCopyWithImpl(_InsufficientPermission _value,
+      $Res Function(_InsufficientPermission) _then)
+      : super(_value, (v) => _then(v as _InsufficientPermission));
+
+  @override
+  _InsufficientPermission get _value => super._value as _InsufficientPermission;
+}
+
+/// @nodoc
+class _$_InsufficientPermission implements _InsufficientPermission {
+  const _$_InsufficientPermission();
+
+  @override
+  String toString() {
+    return 'NoteFailure.insufficientPermission()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _InsufficientPermission);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult unexpected(),
+    @required TResult insufficientPermission(),
+  }) {
+    assert(unexpected != null);
+    assert(insufficientPermission != null);
+    return insufficientPermission();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult unexpected(),
+    TResult insufficientPermission(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (insufficientPermission != null) {
+      return insufficientPermission();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult unexpected(_Unexpected value),
+    @required TResult insufficientPermission(_InsufficientPermission value),
+  }) {
+    assert(unexpected != null);
+    assert(insufficientPermission != null);
+    return insufficientPermission(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult unexpected(_Unexpected value),
+    TResult insufficientPermission(_InsufficientPermission value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (insufficientPermission != null) {
+      return insufficientPermission(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InsufficientPermission implements NoteFailure {
+  const factory _InsufficientPermission() = _$_InsufficientPermission;
 }
