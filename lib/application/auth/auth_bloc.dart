@@ -6,7 +6,9 @@ import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 part 'auth_event.dart';
+
 part 'auth_state.dart';
+
 part 'auth_bloc.freezed.dart';
 
 @injectable
