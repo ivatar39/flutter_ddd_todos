@@ -12,9 +12,7 @@ import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: INoteRepository)
 class NoteRepository implements INoteRepository {
-  final FirebaseFirestore _firestore;
-
-  NoteRepository(this._firestore);
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   @override
   Stream<Either<NoteFailure, KtList<Note>>> watchAll() async* {

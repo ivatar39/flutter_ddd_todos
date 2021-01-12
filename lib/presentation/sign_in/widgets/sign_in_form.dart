@@ -1,7 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ddd_todos/application/auth/auth_bloc.dart';
 import 'package:flutter_ddd_todos/application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'package:flutter_ddd_todos/presentation/routes/router.gr.dart';
 
 class SignInForm extends StatelessWidget {
   @override
@@ -9,22 +12,26 @@ class SignInForm extends StatelessWidget {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
-            () => {},
+            () {},
             (either) => either.fold(
-                (failure) => {
-                      FlushbarHelper.createError(
-                        message: failure.map(
-                          cancelledByUser: (_) => 'Cancelled',
-                          serverError: (_) => 'Server error',
-                          emailAlreadyInUse: (_) => 'Email already in use',
-                          invalidEmailAndPasswordCombination: (_) =>
-                              'Invalid email and password combination',
-                        ),
+                  (failure) => {
+                    FlushbarHelper.createError(
+                      message: failure.map(
+                        cancelledByUser: (_) => 'Cancelled',
+                        serverError: (_) => 'Server error',
+                        emailAlreadyInUse: (_) => 'Email already in use',
+                        invalidEmailAndPasswordCombination: (_) =>
+                            'Invalid email and password combination',
                       ),
-                    },
-                (_) => {
-                      // TODO: add nav
-                    }));
+                    ),
+                  },
+                  (_) {
+                    ExtendedNavigator.root.replace(Routes.notesOverviewPage);
+                    context
+                        .bloc<AuthBloc>()
+                        .add(const AuthEvent.authCheckRequested());
+                  },
+                ));
       },
       builder: (context, state) {
         return Form(

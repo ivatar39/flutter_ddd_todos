@@ -5,7 +5,6 @@
 // **************************************************************************
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -35,8 +34,7 @@ GetIt $initGetIt(
   gh.lazySingleton<GoogleSignIn>(() => firebaseInjectableModule.googleSignIn);
   gh.lazySingleton<IAuthFacade>(
       () => FirebaseAuthFacade(get<FirebaseAuth>(), get<GoogleSignIn>()));
-  gh.lazySingleton<INoteRepository>(
-      () => NoteRepository(get<FirebaseFirestore>()));
+  gh.lazySingleton<INoteRepository>(() => NoteRepository());
   gh.factory<NoteActorBloc>(() => NoteActorBloc(get<INoteRepository>()));
   gh.factory<NoteFormBloc>(() => NoteFormBloc(get<INoteRepository>()));
   gh.factory<NoteWatcherBloc>(() => NoteWatcherBloc(get<INoteRepository>()));
