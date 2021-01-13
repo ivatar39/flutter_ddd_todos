@@ -12,11 +12,13 @@ import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: INoteRepository)
 class NoteRepository implements INoteRepository {
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore _firebaseFirestore;
+
+  NoteRepository(this._firebaseFirestore);
 
   @override
   Stream<Either<NoteFailure, KtList<Note>>> watchAll() async* {
-    final userDoc = await _firestore.userDocument();
+    final userDoc = await _firebaseFirestore.userDocument();
     yield* userDoc.noteCollection
         .orderBy('serverTimeStamp', descending: true)
         .snapshots()
@@ -40,7 +42,7 @@ class NoteRepository implements INoteRepository {
 
   @override
   Stream<Either<NoteFailure, KtList<Note>>> watchUncompleted() async* {
-    final userDoc = await _firestore.userDocument();
+    final userDoc = await _firebaseFirestore.userDocument();
     yield* userDoc.noteCollection
         .orderBy('serverTimeStamp', descending: true)
         .snapshots()
@@ -68,7 +70,7 @@ class NoteRepository implements INoteRepository {
   @override
   Future<Either<NoteFailure, Unit>> create(Note note) async {
     try {
-      final userDoc = await _firestore.userDocument();
+      final userDoc = await _firebaseFirestore.userDocument();
       final noteDto = NoteDto.fromDomain(note);
 
       await userDoc.noteCollection.doc(noteDto.id).set(noteDto.toJson());
@@ -86,7 +88,7 @@ class NoteRepository implements INoteRepository {
   @override
   Future<Either<NoteFailure, Unit>> update(Note note) async {
     try {
-      final userDoc = await _firestore.userDocument();
+      final userDoc = await _firebaseFirestore.userDocument();
       final noteDto = NoteDto.fromDomain(note);
 
       await userDoc.noteCollection.doc(noteDto.id).update(noteDto.toJson());
@@ -106,7 +108,7 @@ class NoteRepository implements INoteRepository {
   @override
   Future<Either<NoteFailure, Unit>> delete(Note note) async {
     try {
-      final userDoc = await _firestore.userDocument();
+      final userDoc = await _firebaseFirestore.userDocument();
       final noteId = note.id.getOrCrash();
       await userDoc.noteCollection.doc(noteId).delete();
 

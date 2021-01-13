@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ddd_todos/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:flutter_ddd_todos/application/notes/note_watcher/note_watcher_bloc.dart';
 import 'package:flutter_ddd_todos/presentation/injection.dart';
+import 'package:flutter_ddd_todos/presentation/notes/notes_overview/widgets/notes_overview_body_widget.dart';
 import 'package:flutter_ddd_todos/presentation/routes/router.gr.dart';
 
 class NotesOverviewPage extends StatelessWidget {
@@ -71,7 +72,7 @@ class NotesOverviewPage extends StatelessWidget {
             },
             child: const Icon(Icons.add),
           ),
-          body: Container(),
+          body: NotesOverviewBody(),
         ),
       ),
     );
