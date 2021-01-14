@@ -338,6 +338,7 @@ class _$_NotesReceived implements _NotesReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrNotes);
 
+  @JsonKey(ignore: true)
   @override
   _$NotesReceivedCopyWith<_NotesReceived> get copyWith =>
       __$NotesReceivedCopyWithImpl<_NotesReceived>(this, _$identity);
@@ -405,6 +406,7 @@ abstract class _NotesReceived implements NoteWatcherEvent {
       Either<NoteFailure, KtList<Note>> failureOrNotes) = _$_NotesReceived;
 
   Either<NoteFailure, KtList<Note>> get failureOrNotes;
+  @JsonKey(ignore: true)
   _$NotesReceivedCopyWith<_NotesReceived> get copyWith;
 }
 
@@ -748,6 +750,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(notes);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -819,6 +822,7 @@ abstract class _LoadSuccess implements NoteWatcherState {
   const factory _LoadSuccess(KtList<Note> notes) = _$_LoadSuccess;
 
   KtList<Note> get notes;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -888,6 +892,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(noteFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -959,5 +964,6 @@ abstract class _LoadFailure implements NoteWatcherState {
   const factory _LoadFailure(NoteFailure noteFailure) = _$_LoadFailure;
 
   NoteFailure get noteFailure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

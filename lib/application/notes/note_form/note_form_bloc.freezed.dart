@@ -163,6 +163,7 @@ class _$_Initialized implements _Initialized {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(initialNoteOption);
 
+  @JsonKey(ignore: true)
   @override
   _$InitializedCopyWith<_Initialized> get copyWith =>
       __$InitializedCopyWithImpl<_Initialized>(this, _$identity);
@@ -240,6 +241,7 @@ abstract class _Initialized implements NoteFormEvent {
   const factory _Initialized(Option<Note> initialNoteOption) = _$_Initialized;
 
   Option<Note> get initialNoteOption;
+  @JsonKey(ignore: true)
   _$InitializedCopyWith<_Initialized> get copyWith;
 }
 
@@ -295,6 +297,7 @@ class _$_BodyChanged implements _BodyChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(bodyStr);
 
+  @JsonKey(ignore: true)
   @override
   _$BodyChangedCopyWith<_BodyChanged> get copyWith =>
       __$BodyChangedCopyWithImpl<_BodyChanged>(this, _$identity);
@@ -372,6 +375,7 @@ abstract class _BodyChanged implements NoteFormEvent {
   const factory _BodyChanged(String bodyStr) = _$_BodyChanged;
 
   String get bodyStr;
+  @JsonKey(ignore: true)
   _$BodyChangedCopyWith<_BodyChanged> get copyWith;
 }
 
@@ -428,6 +432,7 @@ class _$_ColorChanged implements _ColorChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(color);
 
+  @JsonKey(ignore: true)
   @override
   _$ColorChangedCopyWith<_ColorChanged> get copyWith =>
       __$ColorChangedCopyWithImpl<_ColorChanged>(this, _$identity);
@@ -505,6 +510,7 @@ abstract class _ColorChanged implements NoteFormEvent {
   const factory _ColorChanged(Color color) = _$_ColorChanged;
 
   Color get color;
+  @JsonKey(ignore: true)
   _$ColorChangedCopyWith<_ColorChanged> get copyWith;
 }
 
@@ -561,6 +567,7 @@ class _$_TodosChanged implements _TodosChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(todos);
 
+  @JsonKey(ignore: true)
   @override
   _$TodosChangedCopyWith<_TodosChanged> get copyWith =>
       __$TodosChangedCopyWithImpl<_TodosChanged>(this, _$identity);
@@ -639,6 +646,7 @@ abstract class _TodosChanged implements NoteFormEvent {
       _$_TodosChanged;
 
   KtList<TodoItemPrimitive> get todos;
+  @JsonKey(ignore: true)
   _$TodosChangedCopyWith<_TodosChanged> get copyWith;
 }
 
@@ -781,6 +789,7 @@ mixin _$NoteFormState {
   bool get isSaving;
   Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption;
 
+  @JsonKey(ignore: true)
   $NoteFormStateCopyWith<NoteFormState> get copyWith;
 }
 
@@ -952,6 +961,7 @@ class _$_NoteFormState implements _NoteFormState {
       const DeepCollectionEquality().hash(isSaving) ^
       const DeepCollectionEquality().hash(saveFailureOrSuccessOption);
 
+  @JsonKey(ignore: true)
   @override
   _$NoteFormStateCopyWith<_NoteFormState> get copyWith =>
       __$NoteFormStateCopyWithImpl<_NoteFormState>(this, _$identity);
@@ -982,5 +992,6 @@ abstract class _NoteFormState implements NoteFormState {
   @override
   Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption;
   @override
+  @JsonKey(ignore: true)
   _$NoteFormStateCopyWith<_NoteFormState> get copyWith;
 }

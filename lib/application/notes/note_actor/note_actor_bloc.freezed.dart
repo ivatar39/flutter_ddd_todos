@@ -48,6 +48,7 @@ mixin _$NoteActorEvent {
     @required TResult orElse(),
   });
 
+  @JsonKey(ignore: true)
   $NoteActorEventCopyWith<NoteActorEvent> get copyWith;
 }
 
@@ -145,6 +146,7 @@ class _$_Deleted implements _Deleted {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(note);
 
+  @JsonKey(ignore: true)
   @override
   _$DeletedCopyWith<_Deleted> get copyWith =>
       __$DeletedCopyWithImpl<_Deleted>(this, _$identity);
@@ -200,6 +202,7 @@ abstract class _Deleted implements NoteActorEvent {
   @override
   Note get note;
   @override
+  @JsonKey(ignore: true)
   _$DeletedCopyWith<_Deleted> get copyWith;
 }
 
@@ -554,6 +557,7 @@ class _$_DeleteFailure implements _DeleteFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(noteFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$DeleteFailureCopyWith<_DeleteFailure> get copyWith =>
       __$DeleteFailureCopyWithImpl<_DeleteFailure>(this, _$identity);
@@ -625,6 +629,7 @@ abstract class _DeleteFailure implements NoteActorState {
   const factory _DeleteFailure(NoteFailure noteFailure) = _$_DeleteFailure;
 
   NoteFailure get noteFailure;
+  @JsonKey(ignore: true)
   _$DeleteFailureCopyWith<_DeleteFailure> get copyWith;
 }
 

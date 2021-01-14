@@ -162,6 +162,7 @@ class _$EnailChanged implements EnailChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(emailStr);
 
+  @JsonKey(ignore: true)
   @override
   $EnailChangedCopyWith<EnailChanged> get copyWith =>
       _$EnailChangedCopyWithImpl<EnailChanged>(this, _$identity);
@@ -245,6 +246,7 @@ abstract class EnailChanged implements SignInFormEvent {
   const factory EnailChanged(String emailStr) = _$EnailChanged;
 
   String get emailStr;
+  @JsonKey(ignore: true)
   $EnailChangedCopyWith<EnailChanged> get copyWith;
 }
 
@@ -302,6 +304,7 @@ class _$PasswordChanged implements PasswordChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(passwordStr);
 
+  @JsonKey(ignore: true)
   @override
   $PasswordChangedCopyWith<PasswordChanged> get copyWith =>
       _$PasswordChangedCopyWithImpl<PasswordChanged>(this, _$identity);
@@ -385,6 +388,7 @@ abstract class PasswordChanged implements SignInFormEvent {
   const factory PasswordChanged(String passwordStr) = _$PasswordChanged;
 
   String get passwordStr;
+  @JsonKey(ignore: true)
   $PasswordChangedCopyWith<PasswordChanged> get copyWith;
 }
 
@@ -778,6 +782,7 @@ mixin _$SignInFormState {
   bool get isSubmitting;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
 
+  @JsonKey(ignore: true)
   $SignInFormStateCopyWith<SignInFormState> get copyWith;
 }
 
@@ -941,6 +946,7 @@ class _$_SignInFormState implements _SignInFormState {
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
+  @JsonKey(ignore: true)
   @override
   _$SignInFormStateCopyWith<_SignInFormState> get copyWith =>
       __$SignInFormStateCopyWithImpl<_SignInFormState>(this, _$identity);
@@ -971,5 +977,6 @@ abstract class _SignInFormState implements SignInFormState {
   @override
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
   @override
+  @JsonKey(ignore: true)
   _$SignInFormStateCopyWith<_SignInFormState> get copyWith;
 }
