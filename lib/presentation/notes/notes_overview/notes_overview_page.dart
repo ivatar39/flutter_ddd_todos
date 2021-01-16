@@ -57,7 +57,7 @@ class NotesOverviewPage extends StatelessWidget {
             leading: IconButton(
               icon: const Icon(Icons.exit_to_app),
               onPressed: () {
-                context.bloc<AuthBloc>().add(const AuthEvent.signedOut());
+                context.read<AuthBloc>().add(const AuthEvent.signedOut());
               },
             ),
             actions: [
