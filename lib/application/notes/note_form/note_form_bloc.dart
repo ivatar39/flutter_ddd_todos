@@ -19,6 +19,7 @@ part 'note_form_bloc.freezed.dart';
 @injectable
 class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
   final INoteRepository _noteRepository;
+
   NoteFormBloc(this._noteRepository) : super(NoteFormState.initial());
 
   @override
