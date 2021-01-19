@@ -23,7 +23,7 @@ class SignInForm extends StatelessWidget {
                         invalidEmailAndPasswordCombination: (_) =>
                             'Invalid email and password combination',
                       ),
-                    ),
+                    ).show(context),
                   },
                   (_) {
                     ExtendedNavigator.root.replace(Routes.notesOverviewPage);
