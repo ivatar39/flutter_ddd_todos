@@ -30,7 +30,7 @@ dependencies:
   provider: ^4.3.3
   # Auto-gen
   freezed_annotation: ^0.12.0
-  get_it: ^5.0.4
+  get_it: ^5.0.6
   injectable: ^1.0.7
   auto_route: ^0.6.9
   # Functional programming
@@ -48,7 +48,7 @@ dev_dependencies:
   auto_route_generator: ^0.6.10
   json_serializable: ^3.5.1
   # build
-  build_runner: ^1.10.13
+  build_runner: ^1.11.0
   flutter_test:
     sdk: flutter
 
