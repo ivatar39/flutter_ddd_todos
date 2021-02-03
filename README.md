@@ -1,16 +1,10 @@
 # flutter_ddd_todos
 
-A new Flutter application.
+It's a simple app, which was built by me, following this amazing [course](https://resocoder.com/2020/03/09/flutter-firebase-ddd-course-1-domain-driven-design-principles/) 
+Nevertheless, it's not just copy and paste. I try to optimise and refactor the app, expand on the ideas that were presented in course.
 
-## Getting Started
+## Presentation
+![presentation](https://github.com/ivatar39/flutter_ddd_todos/blob/master/Screenrecorder-2021-02-03-12-44-12-378.gif)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Architecture
+![architecture](https://resocoder.com/wp-content/uploads/2020/03/DDD-Flutter-Diagram-v3.svg)
