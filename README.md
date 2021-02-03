@@ -1,6 +1,7 @@
 # flutter_ddd_todos
 
 It's a simple app, which was built by me, following this amazing [course](https://resocoder.com/2020/03/09/flutter-firebase-ddd-course-1-domain-driven-design-principles/) 
+
 Nevertheless, it's not just copy and paste. I try to optimise and refactor the app, expand on the ideas that were presented in course.
 
 ## Presentation
