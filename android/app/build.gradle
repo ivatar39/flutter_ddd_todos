@@ -24,7 +24,6 @@ if (flutterVersionName == null) {
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 30
@@ -35,6 +34,7 @@ android {
 
     lintOptions {
         disable 'InvalidPackage'
+        checkReleaseBuilds false
     }
 
     defaultConfig {
@@ -60,6 +60,18 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.google.firebase:firebase-analytics:18.0.0'
-    implementation 'com.google.android.gms:play-services-basement:17.5.0'
+
+    implementation platform('com.google.firebase:firebase-bom:26.3.0')
+
+    implementation 'androidx.browser:browser:1.3.0'
+
+    implementation 'com.google.firebase:firebase-dynamic-links'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-crashlytics'
+
 }
+
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.firebase.firebase-perf'
