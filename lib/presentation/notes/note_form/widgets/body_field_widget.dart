@@ -6,7 +6,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 class BodyField extends HookWidget {
   const BodyField({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

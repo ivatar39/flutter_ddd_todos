@@ -1,6 +1,6 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,15 +12,15 @@ import 'package:flutter_ddd_todos/presentation/notes/note_form/widgets/add_todo_
 import 'package:flutter_ddd_todos/presentation/notes/note_form/widgets/body_field_widget.dart';
 import 'package:flutter_ddd_todos/presentation/notes/note_form/widgets/color_field_widget.dart';
 import 'package:flutter_ddd_todos/presentation/notes/note_form/widgets/todo_list_widget.dart';
-import 'package:flutter_ddd_todos/presentation/routes/router.gr.dart';
+import 'package:flutter_ddd_todos/presentation/routes/app_router.gr.dart';
 import 'package:provider/provider.dart';
 
 class NoteFormPage extends StatelessWidget {
   final Note editedNote;
 
   const NoteFormPage({
-    Key key,
-    @required this.editedNote,
+    Key? key,
+    required this.editedNote,
   }) : super(key: key);
 
   @override
@@ -47,9 +47,8 @@ class NoteFormPage extends StatelessWidget {
                   )).show(context);
                 },
                 (_) {
-                  ExtendedNavigator.root.popUntil(
-                    (route) => route.settings.name == Routes.notesOverviewPage,
-                  );
+                  context.router.popUntil((route) =>
+                      route.settings.name == NotesOverviewPageRoute.name);
                 },
               );
             },
@@ -73,8 +72,8 @@ class SavingProgressOverlay extends StatelessWidget {
   final bool isSaving;
 
   const SavingProgressOverlay({
-    Key key,
-    @required this.isSaving,
+    Key? key,
+    required this.isSaving,
   }) : super(key: key);
 
   @override
@@ -94,7 +93,7 @@ class SavingProgressOverlay extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   'Saving',
-                  style: Theme.of(context).primaryTextTheme.bodyText2.copyWith(
+                  style: Theme.of(context).primaryTextTheme.bodyText2!.copyWith(
                         fontSize: 16,
                       ),
                 ),
@@ -109,7 +108,7 @@ class SavingProgressOverlay extends StatelessWidget {
 
 class NoteFormPageScaffold extends StatelessWidget {
   const NoteFormPageScaffold({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

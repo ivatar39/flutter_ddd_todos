@@ -1,10 +1,10 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ddd_todos/application/auth/auth_bloc.dart';
 import 'package:flutter_ddd_todos/application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'package:flutter_ddd_todos/presentation/routes/router.gr.dart';
+import 'package:flutter_ddd_todos/presentation/routes/app_router.gr.dart';
 
 class SignInForm extends StatelessWidget {
   @override
@@ -26,7 +26,7 @@ class SignInForm extends StatelessWidget {
                     ).show(context),
                   },
                   (_) {
-                    ExtendedNavigator.root.replace(Routes.notesOverviewPage);
+                    context.router.replace(const NotesOverviewPageRoute());
                     context
                         .read<AuthBloc>()
                         .add(const AuthEvent.authCheckRequested());
@@ -93,7 +93,7 @@ class SignInForm extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: FlatButton(
+                    child: TextButton(
                       onPressed: () {
                         context.read<SignInFormBloc>().add(const SignInFormEvent
                             .signInWithEmailAndPasswordPressed());
@@ -102,7 +102,7 @@ class SignInForm extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: FlatButton(
+                    child: TextButton(
                       onPressed: () {
                         context.read<SignInFormBloc>().add(const SignInFormEvent
                             .registerWithEmailAndPasswordPressed());
@@ -112,13 +112,12 @@ class SignInForm extends StatelessWidget {
                   ),
                 ],
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () {
                   context
                       .read<SignInFormBloc>()
                       .add(const SignInFormEvent.signInWithGooglePressed());
                 },
-                color: Colors.lightBlue,
                 child: const Text(
                   'SIGN IN WITH GOOGLE',
                   style: TextStyle(

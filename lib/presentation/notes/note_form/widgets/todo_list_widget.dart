@@ -1,4 +1,4 @@
-import 'package:flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ddd_todos/application/notes/note_form/note_form_bloc.dart';
@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_ddd_todos/presentation/notes/note_form/misc/build_context_x.dart';
 
 class TodoList extends StatelessWidget {
-  const TodoList({Key key}) : super(key: key);
+  const TodoList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class TodoList extends StatelessWidget {
         if (state.note.todos.isFull) {
           FlushbarHelper.createAction(
             message: 'Want longer lists? Activate premium 🤩',
-            button: FlatButton(
+            button: TextButton(
               onPressed: () {},
               child: const Text(
                 'BUY NOW',
@@ -76,9 +76,9 @@ class TodoTile extends HookWidget {
   final double elevation;
 
   const TodoTile({
-    @required this.index,
+    required this.index,
     this.elevation = 0,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -120,7 +120,9 @@ class TodoTile extends HookWidget {
                 value: todo.done,
                 onChanged: (value) {
                   context.formTodos = context.formTodos.map((listTodo) =>
-                      listTodo == todo ? todo.copyWith(done: value) : listTodo);
+                      listTodo == todo
+                          ? todo.copyWith(done: value!)
+                          : listTodo);
                   context
                       .read<NoteFormBloc>()
                       .add(NoteFormEvent.todosChanged(context.formTodos));

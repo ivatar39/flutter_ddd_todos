@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ddd_todos/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:flutter_ddd_todos/domain/notes/note.dart';
 import 'package:flutter_ddd_todos/domain/notes/todo_item.dart';
-import 'package:flutter_ddd_todos/presentation/routes/router.gr.dart';
+import 'package:flutter_ddd_todos/presentation/routes/app_router.gr.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,8 +11,8 @@ class NoteCard extends StatelessWidget {
   final Note note;
 
   const NoteCard({
-    Key key,
-    @required this.note,
+    Key? key,
+    required this.note,
   }) : super(key: key);
 
   @override
@@ -21,7 +21,7 @@ class NoteCard extends StatelessWidget {
       color: note.color.getOrCrash(),
       child: InkWell(
         onTap: () {
-          ExtendedNavigator.root.pushNoteFormPage(editedNote: note);
+          context.router.push(NoteFormPageRoute(editedNote: note));
         },
         onLongPress: () {
           final noteActorBloc = context.read<NoteActorBloc>();
@@ -71,11 +71,11 @@ class NoteCard extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           actions: [
-            FlatButton(
+            TextButton(
               onPressed: () => Navigator.pop(context),
               child: const Text('CANCEL'),
             ),
-            FlatButton(
+            TextButton(
               onPressed: () {
                 noteActorBloc.add(NoteActorEvent.deleted(note));
                 Navigator.pop(context);
@@ -93,8 +93,8 @@ class TodoDisplay extends StatelessWidget {
   final TodoItem todo;
 
   const TodoDisplay({
-    Key key,
-    @required this.todo,
+    Key? key,
+    required this.todo,
   }) : super(key: key);
 
   @override

@@ -5,8 +5,8 @@ class CriticalFailureDisplay extends StatelessWidget {
   final NoteFailure failure;
 
   const CriticalFailureDisplay({
-    Key key,
-    @required this.failure,
+    Key? key,
+    required this.failure,
   }) : super(key: key);
 
   @override
@@ -27,7 +27,7 @@ class CriticalFailureDisplay extends StatelessWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(fontSize: 24),
           ),
-          FlatButton(
+          TextButton(
               onPressed: () {},
               child: Row(
                 mainAxisSize: MainAxisSize.min,

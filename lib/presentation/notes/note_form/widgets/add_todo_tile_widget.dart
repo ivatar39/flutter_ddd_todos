@@ -6,7 +6,7 @@ import 'package:kt_dart/collection.dart';
 import 'package:flutter_ddd_todos/presentation/notes/note_form/misc/build_context_x.dart';
 
 class AddTodoTile extends StatelessWidget {
-  const AddTodoTile({Key key}) : super(key: key);
+  const AddTodoTile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,12 +1,13 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ddd_todos/application/auth/auth_bloc.dart';
+import 'package:flutter_ddd_todos/presentation/routes/app_router.gr.dart';
 
 import '../injection.dart';
-import '../routes/router.gr.dart' as auto_router;
 
 class AppWidget extends StatelessWidget {
+  final _appRouter = AppRouter();
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -16,7 +17,7 @@ class AppWidget extends StatelessWidget {
               getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
         ),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         title: 'Notes',
         theme: ThemeData.light().copyWith(
           primaryColor: Colors.green[800],
@@ -30,9 +31,8 @@ class AppWidget extends StatelessWidget {
             ),
           ),
         ),
-        builder: ExtendedNavigator.builder<auto_router.Router>(
-          router: auto_router.Router(),
-        ),
+        routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.defaultRouteParser(),
       ),
     );
   }

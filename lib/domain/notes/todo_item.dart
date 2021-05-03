@@ -7,13 +7,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'todo_item.freezed.dart';
 
 @freezed
-abstract class TodoItem implements _$TodoItem {
+class TodoItem with _$TodoItem {
   const TodoItem._();
 
   const factory TodoItem({
-    @required UniqueId id,
-    @required TodoName name,
-    @required bool done,
+    required UniqueId id,
+    required TodoName name,
+    required bool done,
   }) = _TodoItem;
 
   factory TodoItem.empty() => TodoItem(
@@ -23,6 +23,6 @@ abstract class TodoItem implements _$TodoItem {
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return name.value.fold((f)=>some(f), (_)=>none());
+    return name.value.fold((f) => some(f), (_) => none());
   }
 }

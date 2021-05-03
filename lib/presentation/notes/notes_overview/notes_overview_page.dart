@@ -1,14 +1,15 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ddd_todos/application/auth/auth_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ddd_todos/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:flutter_ddd_todos/application/notes/note_watcher/note_watcher_bloc.dart';
+import 'package:flutter_ddd_todos/domain/notes/note.dart';
 import 'package:flutter_ddd_todos/presentation/injection.dart';
 import 'package:flutter_ddd_todos/presentation/notes/notes_overview/widgets/notes_overview_body_widget.dart';
 import 'package:flutter_ddd_todos/presentation/notes/notes_overview/widgets/uncompleted_switch.dart';
-import 'package:flutter_ddd_todos/presentation/routes/router.gr.dart';
+import 'package:flutter_ddd_todos/presentation/routes/app_router.gr.dart';
 
 class NotesOverviewPage extends StatelessWidget {
   @override
@@ -28,7 +29,7 @@ class NotesOverviewPage extends StatelessWidget {
             listener: (context, state) {
               state.maybeMap(
                   unAuthenticated: (_) =>
-                      ExtendedNavigator.root.replace(Routes.signInPage),
+                      context.router.replace(const SignInPageRoute()),
                   orElse: () {});
             },
           ),
@@ -66,7 +67,7 @@ class NotesOverviewPage extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              ExtendedNavigator.root.pushNoteFormPage(editedNote: null);
+              context.router.push(NoteFormPageRoute(editedNote: Note.empty()));
             },
             child: const Icon(Icons.add),
           ),
